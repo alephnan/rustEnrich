@@ -1,0 +1,44 @@
+[package]
+name = "rustenrich"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+description = "Private, bounded IP, URL and file intelligence enrichment service"
+license = "MIT"
+repository = "https://github.com/alephnan/rustEnrich"
+readme = "README.md"
+
+[dependencies]
+axum = { version = "0.8", default-features = false, features = ["http1", "tokio"] }
+base64 = "0.22"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde", "std"] }
+fs2 = "0.4"
+futures-util = "0.3"
+http-body = "1"
+httpdate = "1"
+hyper = { version = "1", features = ["http1", "server"] }
+hyper-util = { version = "0.1", features = ["tokio", "service"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "stream", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio", "sqlite"] }
+subtle = "2"
+thiserror = "2"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal", "sync", "time"] }
+tokio-util = { version = "0.7", features = ["rt"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "json", "env-filter"] }
+url = "2"
+uuid = { version = "1", features = ["v4"] }
+
+[dev-dependencies]
+flate2 = "1"
+http-body-util = "0.1"
+tempfile = "3"
+tokio = { version = "1", features = ["test-util", "io-util"] }
+tower = { version = "0.5", features = ["util"] }
+
+[profile.release]
+lto = "thin"
+strip = true

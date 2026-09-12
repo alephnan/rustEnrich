@@ -1,0 +1,23 @@
+{
+  "recorded_at_utc": "2026-09-12T06:07:58.345456+00:00",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.44",
+  "logical_cpus": 16,
+  "profile": "debug; service and mock provider in one isolated test process",
+  "test": "tests::load_32_simultaneous_default_batches_stays_bounded_and_releases_admission",
+  "simultaneous_requests": 32,
+  "indicators_per_request": 20,
+  "registered_providers": 2,
+  "elapsed_seconds": 0.524044,
+  "peak_resident_kib": 22528,
+  "user_cpu_seconds": 0.44429199999999996,
+  "system_cpu_seconds": 0.208385,
+  "exit_code": 0,
+  "mock_metrics": {
+    "elapsed_ms": 438,
+    "mock_peak": 1,
+    "abuse_peak": 1,
+    "vt_peak": 1,
+    "abuse_calls": 20,
+    "vt_calls": 4
+  }
+}

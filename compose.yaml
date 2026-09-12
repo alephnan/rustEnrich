@@ -1,0 +1,46 @@
+services:
+  rustenrich:
+    build: .
+    image: rustenrich:local
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 25s
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      ENRICH_BIND_ADDR: 0.0.0.0:8080
+      ENRICH_DATABASE_PATH: /data/rustenrich.sqlite
+      ENRICH_SERVICE_TOKEN_FILE: /run/secrets/service_token
+      ENRICH_ABUSEIPDB_ENABLED: ${ENRICH_ABUSEIPDB_ENABLED:-true}
+      ENRICH_ABUSEIPDB_API_KEY_FILE: /run/secrets/abuseipdb_api_key
+      ENRICH_ABUSEIPDB_MAX_AGE_DAYS: ${ENRICH_ABUSEIPDB_MAX_AGE_DAYS:-30}
+      ENRICH_ABUSEIPDB_MAX_CONCURRENCY: ${ENRICH_ABUSEIPDB_MAX_CONCURRENCY:-4}
+      ENRICH_ABUSEIPDB_REQUESTS_PER_MINUTE: ${ENRICH_ABUSEIPDB_REQUESTS_PER_MINUTE:-0}
+      ENRICH_ABUSEIPDB_REQUESTS_PER_DAY: ${ENRICH_ABUSEIPDB_REQUESTS_PER_DAY:-1000}
+      ENRICH_LOG_LEVEL: ${ENRICH_LOG_LEVEL:-info}
+    secrets:
+      - service_token
+      - abuseipdb_api_key
+    volumes:
+      - rustenrich_data:/data
+    networks:
+      - enrichment
+    # No host port is published. Attach n8n to the same Docker network.
+    expose:
+      - "8080"
+
+secrets:
+  service_token:
+    file: ./secrets/service_token
+  abuseipdb_api_key:
+    file: ./secrets/abuseipdb_api_key
+
+volumes:
+  rustenrich_data:
+
+networks:
+  enrichment:
+    name: rustenrich_private

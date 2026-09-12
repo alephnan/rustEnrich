@@ -1,0 +1,17 @@
+{
+  "data": {
+    "ipAddress": "8.8.8.8",
+    "isPublic": true,
+    "ipVersion": 4,
+    "isWhitelisted": null,
+    "abuseConfidenceScore": 0,
+    "countryCode": "US",
+    "usageType": "Data Center/Web Hosting/Transit",
+    "isp": "Example network",
+    "domain": "example.com",
+    "isTor": false,
+    "totalReports": 0,
+    "numDistinctUsers": 0,
+    "lastReportedAt": "2026-09-11T18:50:00-05:00"
+  }
+}

@@ -1,0 +1,8 @@
+# One type and value per line. Use spaces or a tab between them.
+# These are public examples; the hash is the SHA-256 of an empty file.
+ip 8.8.8.8
+ip 2606:4700:4700::1111
+url https://example.com/
+hash e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+# Repeat the first IP to check whether its successful report was cached.
+ip 8.8.8.8

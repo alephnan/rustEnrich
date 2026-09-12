@@ -1,0 +1,10 @@
+# Keep credentials, local databases, Git history, and build output out of context.
+**
+!Cargo.toml
+!Cargo.lock
+!rust-toolchain.toml
+!LICENSE
+!src/
+!src/**
+!migrations/
+!migrations/**

@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "2001:0db8:0:0:0:0:0:1",
+    "type": "ip_address",
+    "attributes": {
+      "last_analysis_stats": {
+        "malicious": 0,
+        "suspicious": 1,
+        "harmless": 2,
+        "undetected": 3,
+        "timeout": 0,
+        "future_count": 99
+      },
+      "reputation": -2,
+      "last_analysis_date": 1789163400,
+      "country": "US",
+      "asn": 64496,
+      "as_owner": "Example network",
+      "future_evidence": {"retained": true}
+    }
+  }
+}

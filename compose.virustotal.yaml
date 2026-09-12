@@ -1,0 +1,16 @@
+# Optional overlay: docker compose -f compose.yaml -f compose.virustotal.yaml up --build --detach
+# Requires ./secrets/virustotal_api_key in addition to the base deployment's secrets.
+services:
+  rustenrich:
+    environment:
+      ENRICH_VIRUSTOTAL_ENABLED: ${ENRICH_VIRUSTOTAL_ENABLED:-true}
+      ENRICH_VIRUSTOTAL_API_KEY_FILE: /run/secrets/virustotal_api_key
+      ENRICH_VIRUSTOTAL_MAX_CONCURRENCY: ${ENRICH_VIRUSTOTAL_MAX_CONCURRENCY:-4}
+      ENRICH_VIRUSTOTAL_REQUESTS_PER_MINUTE: ${ENRICH_VIRUSTOTAL_REQUESTS_PER_MINUTE:-4}
+      ENRICH_VIRUSTOTAL_REQUESTS_PER_DAY: ${ENRICH_VIRUSTOTAL_REQUESTS_PER_DAY:-500}
+    secrets:
+      - virustotal_api_key
+
+secrets:
+  virustotal_api_key:
+    file: ./secrets/virustotal_api_key

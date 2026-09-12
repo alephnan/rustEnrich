@@ -1,0 +1,21 @@
+{
+  "data": {
+    "id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "type": "url",
+    "attributes": {
+      "url": "https://example.com/",
+      "last_analysis_stats": {
+        "malicious": 0,
+        "suspicious": 0,
+        "harmless": 1,
+        "undetected": 2,
+        "timeout": null,
+        "confirmed-timeout": 0,
+        "failure": 0,
+        "type-unsupported": 1
+      },
+      "reputation": 0,
+      "last_analysis_date": 1789163400
+    }
+  }
+}
